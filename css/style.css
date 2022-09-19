@@ -1,0 +1,77 @@
+h1{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+}
+
+
+
+.producto {
+    max-width: 20%;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    box-shadow: 2px 6px 3px rgba(0, 0, 0, 0.3);
+    
+}
+
+#contenedor-productos{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.titulo{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+
+}
+
+.precio-producto{
+    font-family: 'Barlow', sans-serif;
+}
+
+.btn{
+    
+    color: orange;
+    font-size: 16px;
+    padding: 5px;
+    font-family: 'Barlow', sans-serif;
+    
+}
+
+.boton-agregar:hover{
+    cursor: pointer;
+}
+
+.boton-agregar:focus{
+    outline: none;
+}
+
+.tamañosImg{
+    width: 100%;
+}
+
+.imagenes-carrito{
+    width: 10%;
+}
+
+#tbody{
+    width: 40%;
+}
+.modal-contenedor{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    opacity: 0;
+}
+
+#carrito-compra{
+    width: 40%;
+    
+}
