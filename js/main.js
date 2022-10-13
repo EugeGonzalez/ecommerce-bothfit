@@ -1,45 +1,47 @@
-let productos = [
-    {id: 1, nombre: "Colchoneta", precio: 1800, img:'./galeria/colchoneta-gimnasio.jpg'},
-    {id: 2, nombre: "Fitball", precio: 1500, img:'./galeria/fitball-gimnasio.jpg'},
-    {id: 3, nombre: "Trx",  precio: 1850, img:'./galeria/trx-gimnasio.jpg'},
-    {id: 4, nombre: "Banco plano",  precio: 25000, img:'./galeria/banco-gimnasio.jpg'},
-    {id: 5, nombre: "Rueda abdominal",  precio: 1000, img:'./galeria/rueda-abdominal-gimnasio.jpg'},
-];
+let productos = "./JSON/productos.json";
 
 let  carrito = [];
 
-let contenedorProductos = document.getElementById("contenedor-productos");
+let contenedorProductos = document.getElementById("contenedor-productos"); 
 
-productos.forEach(producto => {
-    let div = document.createElement('div')
-    div.classList.add('producto')
-    div.innerHTML= `
-    <img src=${producto.img} class="tamañosImg" alt="">
-    <h3 class="titulo"> ${producto.nombre}</h3>
-    <p class="precioProducto"> Precio: ${producto.precio}</p>
-    <button id="agregar${producto.id}" class="btn btn-outline-dark"> Agregar </button>
-    `
-
-    contenedorProductos.appendChild(div)
-
-   
-
-    let boton = document.getElementById(`agregar${producto.id}`);
-
-    boton.addEventListener("click" , function(){
-        anadir(producto.id);
-        
-
-    });
+fetch('./JSON/productos.json')
+.then(response => response.json())
+.then(data => 
     
     
+    data.forEach(producto => {
+        let div = document.createElement('div')
+        div.classList.add('producto')
+        div.innerHTML= `
+        <img src=${producto.img} class="tamañosImg" alt="">
+        <h3 class="titulo"> ${producto.nombre}</h3>
+        <p class="precioProducto"> Precio: ${producto.precio}</p>
+        <button id="agregar${producto.id}" class="btn btn-outline-dark"> Agregar </button>
+        `
+    
+        contenedorProductos.appendChild(div)
+    
+       
+    
+        let boton = document.getElementById(`agregar${producto.id}`);
+    
+        boton.addEventListener("click" , function(){
+            anadir(producto.id);
+            
+    
+        });
+    
+    })
 
-});
+);
+
 
 
 function anadir (prodId){ 
     let item = productos.find((prod) => prod.id == prodId)
     carrito.push(item);
+
+
 
     let carrito_datos = JSON.stringify(carrito);
     localStorage.setItem("carrito" , carrito_datos);
@@ -50,7 +52,11 @@ function anadir (prodId){
     console.log(carrito);
     
     mostrar_carrito(recupero_carrito);
-}
+
+};
+
+
+    
 
 
 
