@@ -33,7 +33,7 @@ h1{
 
 .btn{
     
-    color: orange;
+    color: black;
     font-size: 16px;
     padding: 5px;
     font-family: 'Barlow', sans-serif;
@@ -74,4 +74,16 @@ h1{
 #carrito-compra{
     width: 40%;
     
+}
+
+.borrar_elemento{
+    color:white;
+}
+
+.compra{
+    color:white;
+}
+
+.letra{
+    font-weight: 700;
 }
