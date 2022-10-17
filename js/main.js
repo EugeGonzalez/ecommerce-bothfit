@@ -139,7 +139,7 @@ function formulario_c(){
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#!">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html#contenedor-productos">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
                     <li class="nav-item" id="mostrar_carrito"><a class="bi bi-cart3 carrito"></a></li>
                     
@@ -188,25 +188,29 @@ function formulario_c(){
     </div> 
             
       <div class="d-grid button">
-          <a class="btn btn-dark btn-lg comprar" id="submitButton" id="saludo" type="submit">Enviar</a>
+          <a class="btn btn-dark btn-lg comprar"  id="saludo" type="submit">Enviar</a>
       </div>
   </form>
 </div>
 </div>
   `
+
+  let saludo = document.getElementById("saludo")
+
+  saludo.addEventListener("click" , function(){
+      Swal.fire({
+          title: 'Gracias por tu compra',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+      })
+  
+  } )
+  
 }
 
-let saludo = document.getElementById("saludo")
 
-saludo.addEventListener("click" , function(){
-    Swal.fire({
-        title: 'Gracias por tu compra',
-        showClass: {
-          popup: 'animate__animated animate__fadeInDown'
-        },
-        hideClass: {
-          popup: 'animate__animated animate__fadeOutUp'
-        }
-    })
 
-} )
